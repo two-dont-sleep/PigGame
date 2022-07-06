@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
+    color: #333;
+    background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+}
+
+.game_window {
+    position: relative;
+    margin: 10rem auto;
+    width: 100rem;
+    height: 60rem;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.player {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    padding: 9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.75s;
+
+    &-0 {
+        left: 0;
+        top: 0;
+    }
+
+    &-1 {
+        right: 0;
+        top: 0;
+    }
+
+    &_title {
+        position: relative;
+        font-size: 4rem;
+        letter-spacing: 1px;
+        word-spacing: 2px;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+    &_hold-score {
+        font-size: 8rem;
+        font-weight: 300;
+        color: #c7365f;
+        margin-bottom: auto;
+    }
+}
+
+.current-score {
+    &_wrapper {
+        border-radius: 1rem;
+        background-color: #c7365f;
+        opacity: 0.8;
+        text-align: center;
+        transition: all 0.75s;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: flex-start;
+        width: 65%;
+    }
+
+    &_title {
+        color: #ddd;
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+    }
+
+    &_score {
+        color: #fff;
+        font-size: 3.5rem;
+    }
+
+}
+
+.button {
+    left: 50%;
+    transform: translateX(-50%);
+    color: #444;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.2s;
+    position: absolute;
+
+    background: rgba(255, 255, 255, 0.6) none;
+    backdrop-filter: blur(10px);
+    padding: 0.7rem 2.5rem;
+    border-radius: 50rem;
+    box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+
+
+    &_new-game {
+        top: 4rem;
+    }
+
+    &_roll {
+        top: 39.3rem;
+    }
+
+    &_hold {
+        top: 46.1rem;
+    }
+
+    &_placeholder{
+        position: absolute;
+        display: none;
+        height: 10%;
+        background-color:#c7365f;
+        width: 100%;
+    }
+
+    &:active {
+        transform: translate(-50%, 3px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 0.4);
+    .player_title {
+        font-weight: 700;
+    }
+    .player_hold-score {
+        font-weight: 400;
+    }
+    .current-score_wrapper {
+        opacity: 1;
+    }
+}
+
+.dice {
+    position: absolute;
+    left: 50%;
+    top: 16.5rem;
+    transform: translateX(-50%);
+    height: 10rem;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.winner {
+    background-color: #2f2f2f;
+    .player_title {
+        font-weight: 700;
+        color: #c7365f;
+    }
+}
+
+.hidden {
+    display: none;
+}
